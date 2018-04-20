@@ -22,3 +22,22 @@
 .playground > span:hover {
     background: #cdcdcd;
 }
+.winner {
+    margin: 20px 10px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+.winner > span {
+    border: 2px solid #73d044;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.winner > button {
+    padding: 10px;
+    border: 3px solid #797979;
+    outline: none;
+    background: white;
+    font-size: 15px;
+    cursor: pointer;
+}
