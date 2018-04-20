@@ -3,14 +3,15 @@ import './App.css';
 
 class App extends Component {
   state = {
-    winner: null
+    winner: null,
+    currentTeam: 'O'
   };
   render() {
-    const { winner } = this.state;
+    const { winner, currentTeam } = this.state;
     return (
       <div>
         <div className="header">
-          <span>Team O</span>
+          <span>Team {currentTeam}</span>
         </div>
         <div className="playground">
           <span>$</span>
