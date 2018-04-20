@@ -13,13 +13,15 @@ class App extends Component {
   };
   isOorX = letter => letter === 'O' || letter === 'X';
   toggleTeam = () => this.state.currentTeam === 'O'
-    ? this.setState({
-      currentTeam: 'X'
-    })
-    : this.setState({
-      currentTeam: 'O'
-    });
+    ? this.setState({ currentTeam: 'X' })
+    : this.setState({ currentTeam: 'O' });
+  updateGameState = (i, j) => {
+    const { currentTeam, gameState } = this.state;
+    gameState[i][j] = currentTeam;
+    this.setState({ gameState });
+  };
   handlePlayItemClick = (i, j) => {
+    this.updateGameState(i, j);
     this.toggleTeam();
   };
   render() {
