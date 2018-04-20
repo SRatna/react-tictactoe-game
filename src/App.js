@@ -11,23 +11,25 @@ class App extends Component {
       ['g', 'h', 'i']
     ]
   };
+  isOorX = letter => letter === 'O' || letter === 'X';
   render() {
-    const { winner, currentTeam } = this.state;
+    const { winner, currentTeam, gameState } = this.state;
     return (
       <div>
         <div className="header">
           <span>Team {currentTeam}</span>
         </div>
         <div className="playground">
-          <span>$</span>
-          <span>$</span>
-          <span>$</span>
-          <span>$</span>
-          <span>$</span>
-          <span>$</span>
-          <span>$</span>
-          <span>$</span>
-          <span>$</span>
+          {[0, 1, 2].map(i => {
+            return [0, 1, 2].map(j => {
+              const cur = gameState[i][j];
+              return (
+                <span key={j}>
+                  {this.isOorX(cur) ? cur : '$'}
+                  </span>
+              );
+            })
+          })}
         </div>
         {winner && (
           <div className="winner">
