@@ -12,6 +12,16 @@ class App extends Component {
     ]
   };
   isOorX = letter => letter === 'O' || letter === 'X';
+  toggleTeam = () => this.state.currentTeam === 'O'
+    ? this.setState({
+      currentTeam: 'X'
+    })
+    : this.setState({
+      currentTeam: 'O'
+    });
+  handlePlayItemClick = (i, j) => {
+    this.toggleTeam();
+  };
   render() {
     const { winner, currentTeam, gameState } = this.state;
     return (
@@ -24,7 +34,9 @@ class App extends Component {
             return [0, 1, 2].map(j => {
               const cur = gameState[i][j];
               return (
-                <span key={j}>
+                <span
+                  onClick={() => this.handlePlayItemClick(i, j)}
+                  key={j}>
                   {this.isOorX(cur) ? cur : '$'}
                   </span>
               );
