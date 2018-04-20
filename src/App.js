@@ -4,7 +4,12 @@ import './App.css';
 class App extends Component {
   state = {
     winner: null,
-    currentTeam: 'O'
+    currentTeam: 'O',
+    gameState: [
+      ['a', 'b', 'c'],
+      ['d', 'e', 'f'],
+      ['g', 'h', 'i']
+    ]
   };
   render() {
     const { winner, currentTeam } = this.state;
