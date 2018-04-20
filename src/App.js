@@ -19,6 +19,10 @@ class App extends Component {
           <span>$</span>
           <span>$</span>
         </div>
+        <div className="winner">
+          <span>Team O won</span>
+          <button>Play Again</button>
+        </div>
       </div>
     );
   }
