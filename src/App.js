@@ -8,6 +8,17 @@ class App extends Component {
         <div className="header">
           <span>Team O</span>
         </div>
+        <div className="playground">
+          <span>$</span>
+          <span>$</span>
+          <span>$</span>
+          <span>$</span>
+          <span>$</span>
+          <span>$</span>
+          <span>$</span>
+          <span>$</span>
+          <span>$</span>
+        </div>
       </div>
     );
   }
