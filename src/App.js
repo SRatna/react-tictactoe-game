@@ -21,6 +21,8 @@ class App extends Component {
     this.setState({ gameState });
   };
   handlePlayItemClick = (i, j) => {
+    const { gameState } = this.state;
+    if (this.isOorX(gameState[i][j])) return;
     this.updateGameState(i, j);
     this.toggleTeam();
   };
