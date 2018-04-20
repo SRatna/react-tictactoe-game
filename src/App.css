@@ -4,3 +4,21 @@
     background-color: #818181;
     color: #ffffff;
 }
+.playground {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    text-align: center;
+    margin: 10px;
+    grid-gap: 10px;
+}
+.playground > span {
+    padding: 5px;
+    display: inline;
+    border: 1px solid #d0d0d0;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+.playground > span:hover {
+    background: #cdcdcd;
+}
