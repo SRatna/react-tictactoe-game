@@ -9,7 +9,9 @@ class App extends Component {
       ['a', 'b', 'c'],
       ['d', 'e', 'f'],
       ['g', 'h', 'i']
-    ]
+    ],
+    playItemSelectionCount: 0,
+    gameOver: false
   };
 
   isOorX = letter => letter === 'O' || letter === 'X';
@@ -45,7 +47,17 @@ class App extends Component {
     || this.checkForWinnerInDiagonals(gameState, currentTeam)) {
       this.setState({ winner: currentTeam });
     } else {
+      this.checkForGameOver();
       this.toggleTeam();
+    }
+  };
+
+  checkForGameOver = () => {
+    const currentPlayItemSelectionCount = this.state.playItemSelectionCount;
+    if (currentPlayItemSelectionCount === 8) {
+      this.setState({ gameOver: true, winner: 'none' });
+    } else {
+      this.setState({ playItemSelectionCount: currentPlayItemSelectionCount + 1 });
     }
   };
 
@@ -67,7 +79,7 @@ class App extends Component {
   });
 
   render() {
-    const { winner, currentTeam, gameState } = this.state;
+    const { winner, currentTeam, gameState, gameOver } = this.state;
     return (
       <div>
         <div className="header">
@@ -90,7 +102,7 @@ class App extends Component {
         {winner && (
           <div className="winner">
             <div className="content">
-              <span>Team {winner} won</span>
+              {gameOver ? <span>Game Over</span> : <span>Team {winner} won</span>}
               <button
                 onClick={() => this.resetGame()}>
                 Play Again
