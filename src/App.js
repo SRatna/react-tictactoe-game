@@ -56,6 +56,16 @@ class App extends Component {
     this.checkForWinner();
   };
 
+  resetGame = () => this.setState({
+    winner: null,
+    currentTeam: 'O',
+    gameState: [
+      ['a', 'b', 'c'],
+      ['d', 'e', 'f'],
+      ['g', 'h', 'i']
+    ]
+  });
+
   render() {
     const { winner, currentTeam, gameState } = this.state;
     return (
@@ -82,15 +92,7 @@ class App extends Component {
             <div className="content">
               <span>Team {winner} won</span>
               <button
-                onClick={() => this.setState({
-                  winner: null,
-                  currentTeam: 'O',
-                  gameState: [
-                    ['a', 'b', 'c'],
-                    ['d', 'e', 'f'],
-                    ['g', 'h', 'i']
-                  ]
-                })}>
+                onClick={() => this.resetGame()}>
                 Play Again
               </button>
             </div>
