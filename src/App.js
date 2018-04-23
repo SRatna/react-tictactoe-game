@@ -24,11 +24,36 @@ class App extends Component {
     this.setState({ gameState });
   };
 
+  checkForWinnerInColumns = (gameState, team) =>
+  (gameState[0][0] === team && gameState[1][0] === team && gameState[2][0] === team)
+  || (gameState[0][1] === team && gameState[1][1] === team &&  gameState[2][1] === team)
+  || (gameState[0][2] === team && gameState[1][2] === team && gameState[2][2] === team);
+
+  checkForWinnerInRows = (gameState, team) =>
+  (gameState[0][0] === team && gameState[0][1] === team && gameState[0][2] === team)
+  || (gameState[1][0] === team && gameState[1][1] === team && gameState[1][2] === team)
+  || (gameState[2][0] === team && gameState[2][1] === team && gameState[2][2] === team);
+
+  checkForWinnerInDiagonals = (gameState, team) =>
+  (gameState[0][0] === team && gameState[1][1] === team && gameState[2][2] === team)
+  || (gameState[0][2] === team && gameState[1][1] === team && gameState[2][0] === team);
+
+  checkForWinner = () => {
+    const { gameState, currentTeam } = this.state;
+    if (this.checkForWinnerInRows(gameState, currentTeam)
+    || this.checkForWinnerInColumns(gameState, currentTeam)
+    || this.checkForWinnerInDiagonals(gameState, currentTeam)) {
+      this.setState({ winner: currentTeam });
+    } else {
+      this.toggleTeam();
+    }
+  };
+
   handlePlayItemClick = (i, j) => {
     const { gameState } = this.state;
     if (this.isOorX(gameState[i][j])) return;
     this.updateGameState(i, j);
-    this.toggleTeam();
+    this.checkForWinner();
   };
 
   render() {
