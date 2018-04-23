@@ -72,7 +72,7 @@ class App extends Component {
                   onClick={() => this.handlePlayItemClick(i, j)}
                   key={j}>
                   {this.isOorX(cur) ? cur : '$'}
-                  </span>
+                </span>
               );
             })
           })}
@@ -80,7 +80,18 @@ class App extends Component {
         {winner && (
           <div className="winner">
             <span>Team {winner} won</span>
-            <button>Play Again</button>
+            <button
+              onClick={() => this.setState({
+                winner: null,
+                currentTeam: 'O',
+                gameState: [
+                  ['a', 'b', 'c'],
+                  ['d', 'e', 'f'],
+                  ['g', 'h', 'i']
+                ]
+              })}>
+              Play Again
+            </button>
           </div>
         )}
       </div>
