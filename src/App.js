@@ -79,19 +79,21 @@ class App extends Component {
         </div>
         {winner && (
           <div className="winner">
-            <span>Team {winner} won</span>
-            <button
-              onClick={() => this.setState({
-                winner: null,
-                currentTeam: 'O',
-                gameState: [
-                  ['a', 'b', 'c'],
-                  ['d', 'e', 'f'],
-                  ['g', 'h', 'i']
-                ]
-              })}>
-              Play Again
-            </button>
+            <div className="content">
+              <span>Team {winner} won</span>
+              <button
+                onClick={() => this.setState({
+                  winner: null,
+                  currentTeam: 'O',
+                  gameState: [
+                    ['a', 'b', 'c'],
+                    ['d', 'e', 'f'],
+                    ['g', 'h', 'i']
+                  ]
+                })}>
+                Play Again
+              </button>
+            </div>
           </div>
         )}
       </div>

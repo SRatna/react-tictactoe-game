@@ -23,17 +23,30 @@
     background: #cdcdcd;
 }
 .winner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #7e7e7e;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.winner > .content {
     margin: 20px 10px;
     display: flex;
     text-align: center;
     flex-direction: column;
 }
-.winner > span {
+.winner > .content > span {
     border: 2px solid #73d044;
     padding: 10px;
     margin-bottom: 5px;
 }
-.winner > button {
+.winner > .content > button {
     padding: 10px;
     border: 3px solid #797979;
     outline: none;
